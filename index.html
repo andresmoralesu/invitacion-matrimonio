@@ -820,6 +820,103 @@
       color: var(--color-text);
     }
 
+    /* Fiesta — sugerencias de canciones */
+    .fiesta__panel {
+      max-width: 28rem;
+      margin: 0 auto;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.35);
+      border: 1px solid rgba(107, 140, 110, 0.25);
+      border-radius: 4px;
+      padding: clamp(2rem, 5vw, 2.75rem) clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .fiesta__icon-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 0 0 1.25rem;
+      color: var(--color-text);
+    }
+
+    .fiesta__icon {
+      width: min(72px, 18vw);
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    .fiesta__kicker {
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: clamp(0.95rem, 2.4vw, 1.05rem);
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-green);
+      margin: 0 0 1rem;
+      line-height: 1.4;
+    }
+
+    .fiesta__head {
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: clamp(1.15rem, 3vw, 1.35rem);
+      font-weight: 400;
+      color: var(--color-text);
+      margin: 0 0 0.65rem;
+      line-height: 1.45;
+    }
+
+    .fiesta__head:last-of-type {
+      margin-bottom: 1.5rem;
+      color: var(--color-accent);
+    }
+
+    .fiesta__actions {
+      display: flex;
+      justify-content: center;
+    }
+
+    .fiesta__btn {
+      display: inline-block;
+      padding: 0.65rem 1.5rem;
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: clamp(0.78rem, 2vw, 0.88rem);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
+      color: var(--color-green);
+      background: transparent;
+      border: 1px solid rgba(107, 140, 110, 0.45);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+    }
+
+    .fiesta__btn:hover,
+    .fiesta__btn:focus-visible {
+      color: var(--color-bg);
+      background: var(--color-green);
+      border-color: var(--color-green);
+      outline: none;
+    }
+
+    .fiesta__notice {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 1rem auto 0;
+      max-width: 24rem;
+      color: var(--color-text);
+      opacity: 0.88;
+      min-height: 1.5em;
+    }
+
+    .fiesta__notice[hidden] {
+      display: none;
+    }
+
     /* Dress code */
     .dress-list {
       max-width: 32rem;
@@ -874,6 +971,118 @@
       border-radius: 50%;
       pointer-events: none;
       opacity: 0.85;
+    }
+
+    /* Comparte fotos (bloque verde, botones contorno) */
+    .share-photos {
+      position: relative;
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      margin-top: clamp(2rem, 6vw, 3rem);
+      margin-bottom: clamp(2rem, 6vw, 3rem);
+      padding: clamp(2.25rem, 6vw, 3.25rem) var(--pad-mobile);
+      background: var(--color-green);
+      color: var(--color-bg);
+      text-align: center;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    .share-photos__icon-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 1rem;
+    }
+
+    .share-photos__icon {
+      width: 48px;
+      height: 48px;
+      color: var(--color-bg);
+      opacity: 0.95;
+    }
+
+    .share-photos__rule {
+      width: 2.5rem;
+      height: 1px;
+      background: rgba(240, 236, 228, 0.45);
+      border: 0;
+      margin: 0;
+    }
+
+    .share-photos__title {
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: clamp(1.35rem, 4vw, 1.65rem);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--color-bg);
+      margin: 0 0 0.65rem;
+      line-height: 1.35;
+    }
+
+    .share-photos__lead {
+      font-family: var(--font-body);
+      font-size: clamp(0.98rem, 2.6vw, 1.08rem);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.55;
+      margin: 0 auto 1.65rem;
+      max-width: 22rem;
+      opacity: 0.92;
+    }
+
+    .share-photos__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.85rem;
+      max-width: 18.5rem;
+      margin: 0 auto;
+    }
+
+    .share-photos__btn {
+      display: block;
+      width: 100%;
+      padding: 0.82rem 1.35rem;
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: clamp(0.78rem, 2vw, 0.88rem);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
+      color: var(--color-bg);
+      background: transparent;
+      border: 1.5px solid rgba(240, 236, 228, 0.65);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+    }
+
+    .share-photos__btn:hover,
+    .share-photos__btn:focus-visible {
+      color: var(--color-green);
+      background: var(--color-bg);
+      border-color: var(--color-bg);
+      outline: none;
+    }
+
+    .share-photos__notice {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 1rem auto 0;
+      max-width: 24rem;
+      color: var(--color-bg);
+      opacity: 0.88;
+      min-height: 1.5em;
+    }
+
+    .share-photos__notice[hidden] {
+      display: none;
     }
 
     /* RSVP / formulario */
@@ -1281,6 +1490,46 @@
       </div>
     </section>
 
+    <!--
+      Enlaces útiles para el botón (pon uno en data-canciones-url):
+      • Google Forms: crea un formulario con un campo “Canción / artista” y pega la URL aquí.
+      • Spotify: crea una playlist, actívala como colaborativa y comparte el enlace (quien tenga cuenta puede añadir temas).
+    -->
+    <section
+      id="fiesta"
+      class="fiesta"
+      aria-labelledby="fiesta-title"
+      data-canciones-url="https://open.spotify.com/playlist/3lS2vPqNLac9tHp4SREBbb?si=ZEZ689B4Q6WKEpIsBj37Dw&amp;pi=577G-H9VTJuDr&amp;pt=6176c313d1a9926a85a375463a42372d"
+    >
+      <div class="fiesta__panel">
+        <div class="fiesta__icon-wrap fade-in" aria-hidden="true">
+          <svg class="fiesta__icon" viewBox="0 0 56 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11 8h23.5l10.5 10.5V53a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3V11a3 3 0 0 1 3-3z"
+              stroke="currentColor"
+              stroke-width="1.25"
+              stroke-linejoin="round"
+            />
+            <path d="M34.5 8V18.5H45" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" />
+            <path
+              d="M34 42a3.25 3.25 0 1 1-6.5 0 3.25 3.25 0 0 1 6.5 0zM46 38a3.25 3.25 0 1 1-6.5 0 3.25 3.25 0 0 1 6.5 0z"
+              stroke="currentColor"
+              stroke-width="1.25"
+            />
+            <path d="M38 18v21M50 14v21" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
+            <path d="M38 18c3.5-1.2 8.5-3 12-4.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
+          </svg>
+        </div>
+        <h2 id="fiesta-title" class="fiesta__kicker fade-in">¡Fiesta!</h2>
+        <p class="fiesta__head fade-in">¿Qué canciones no pueden faltar en la fiesta?</p>
+        <p class="fiesta__head fade-in">¡Queremos crear una lista inolvidable!</p>
+        <div class="fiesta__actions fade-in">
+          <button type="button" class="fiesta__btn" id="fiesta-canciones-btn">Pide tu tema</button>
+        </div>
+        <p class="fiesta__notice" id="fiesta-canciones-notice" hidden role="status"></p>
+      </div>
+    </section>
+
     <section id="dress-code" aria-labelledby="dress-title">
       <div class="dress-divider fade-in" aria-hidden="true">
         <div class="dress-divider__stage">
@@ -1320,6 +1569,40 @@
           <span class="color-swatch color-swatch--cross" style="background:var(--color-green);" role="listitem" title="Oliva — evitar"></span>
         </div>
       </div>
+    </section>
+
+    <!--
+      Álbum colaborativo (p. ej. Google Fotos): un solo enlace para ver y añadir fotos.
+      Pon la URL en data-album-url.
+    -->
+    <section
+      id="comparte-fotos"
+      class="share-photos fade-in"
+      aria-labelledby="share-photos-title"
+      data-album-url="https://photos.app.goo.gl/XfybzxjckA9Sfmdq8"
+    >
+      <div class="share-photos__icon-wrap" aria-hidden="true">
+        <svg class="share-photos__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M14 18h4l2.5-3h11L34 18h4a3 3 0 0 1 3 3v16a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3V21a3 3 0 0 1 3-3Z"
+            stroke="currentColor"
+            stroke-width="1.35"
+            stroke-linejoin="round"
+          />
+          <circle cx="24" cy="28" r="5.5" stroke="currentColor" stroke-width="1.25" />
+          <circle cx="24" cy="28" r="2.25" fill="currentColor" fill-opacity="0.35" />
+          <path d="M36 20.5h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <hr class="share-photos__rule" />
+      </div>
+      <h2 id="share-photos-title" class="share-photos__title">Comparte fotos</h2>
+      <p class="share-photos__lead">
+        Entra al álbum colaborativo: podrás ver las fotos del día y añadir las tuyas.
+      </p>
+      <div class="share-photos__actions">
+        <button type="button" class="share-photos__btn" id="share-photos-album">Abrir álbum de fotos</button>
+      </div>
+      <p class="share-photos__notice" id="share-photos-notice" hidden role="status"></p>
     </section>
 
     <div class="divider divider--calendar fade-in" aria-hidden="true">
@@ -1632,6 +1915,42 @@
           okEl.hidden = false;
           okEl.classList.add("is-visible");
         }
+      });
+    })();
+
+    (function () {
+      var fiesta = document.getElementById("fiesta");
+      var btn = document.getElementById("fiesta-canciones-btn");
+      var notice = document.getElementById("fiesta-canciones-notice");
+      if (!fiesta || !btn) return;
+      var url = (fiesta.getAttribute("data-canciones-url") || "").trim();
+      btn.addEventListener("click", function () {
+        if (!url) {
+          if (notice) {
+            notice.textContent = "Pronto compartiremos el enlace para pedir tu canción.";
+            notice.hidden = false;
+          }
+          return;
+        }
+        window.open(url, "_blank", "noopener,noreferrer");
+      });
+    })();
+
+    (function () {
+      var section = document.getElementById("comparte-fotos");
+      var btn = document.getElementById("share-photos-album");
+      var notice = document.getElementById("share-photos-notice");
+      if (!section || !btn) return;
+      var url = (section.getAttribute("data-album-url") || "").trim();
+      btn.addEventListener("click", function () {
+        if (!url) {
+          if (notice) {
+            notice.textContent = "Pronto compartiremos el álbum colaborativo.";
+            notice.hidden = false;
+          }
+          return;
+        }
+        window.open(url, "_blank", "noopener,noreferrer");
       });
     })();
   </script>
