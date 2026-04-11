@@ -973,6 +973,40 @@
       opacity: 0.85;
     }
 
+    .dress-list__footnote {
+      margin-top: 1.5rem;
+    }
+
+    .dress-list__rule {
+      width: min(100%, 17.5rem);
+      height: 1px;
+      margin: 0 auto 0.85rem;
+      border: 0;
+      background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+    }
+
+    .dress-list__clima {
+      margin: 0 auto;
+      max-width: 26rem;
+      padding: 0 0.5rem;
+      font-family: var(--font-body);
+      font-size: clamp(0.88rem, 2.2vw, 0.98rem);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.55;
+      color: color-mix(in srgb, var(--color-text) 62%, var(--color-bg));
+      text-align: center;
+    }
+
+    .dress-list__clima-mark {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-style: normal;
+      font-size: clamp(0.72rem, 1.8vw, 0.82rem);
+      letter-spacing: 0.2em;
+      color: color-mix(in srgb, var(--color-text) 45%, var(--color-bg));
+    }
+
     /* Comparte fotos (bloque verde, botones contorno) */
     .share-photos {
       position: relative;
@@ -1395,11 +1429,18 @@
       <details class="countdown-reminder-minimal fade-in">
         <summary class="countdown-reminder-minimal__summary">
           <span class="countdown-reminder-minimal__inner">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3.5" y="5" width="17" height="16" rx="1.75" />
-              <path d="M8 3v4M16 3v4" />
-              <path d="M3.5 11h17" />
-              <path d="M8 15h2M12 15h2M8 18h2M12 18h2" opacity="0.45" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3.5" y="5.5" width="17" height="15.5" rx="2" />
+              <path d="M7.5 3.5v4.5M16.5 3.5v4.5" />
+              <path d="M3.5 11.5h17" opacity="0.5" />
+              <path d="M7 15.5h3M14 15.5h3" opacity="0.38" />
+              <path
+                d="M12 17.2c-.35-.45-.85-.85-1.35-1.1-.35-.2-.55-.55-.5-.95.08-.55.55-.95 1.1-.92.35.02.65.22.85.48.22-.28.55-.48.95-.5.6-.05 1.08.38 1.15.95.05.42-.18.78-.52.98-.55.32-1.05.75-1.38 1.28-.05.08-.12.12-.2.12s-.15-.04-.2-.12z"
+                stroke="currentColor"
+                stroke-width="1.35"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
             Agendar Recordatorio
           </span>
@@ -1455,34 +1496,40 @@
       <h2 id="regalos-title" class="section-title fade-in">Regalos</h2>
       <div class="regalos__panel">
         <div class="regalos__icon-wrap fade-in" aria-hidden="true">
-          <svg class="regalos__icon" viewBox="0 0 56 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            class="regalos__icon"
+            viewBox="0 0 56 64"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <path
-              d="M28 9c-2.8 0-5.2 1.8-6 4.5-.2.7-.3 1.4-.3 2.1h12.6c0-.7-.1-1.4-.3-2.1-.8-2.7-3.2-4.5-6-4.5z"
-              stroke="currentColor"
-              stroke-width="1.25"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              d="M7.2 38.5c.35-2.1 1.1-3.85 2.35-5.1M9.2 33.8c-1.15.95-1.85 2.35-2.05 3.9M10.5 35.2l-1.8 2.1M8.8 36.4l2.35 1.15M11.2 37.6c.9-.45 1.75-.55 2.55-.25"
+              opacity="0.92"
             />
             <path
-              d="M28 9c-5 0-9 3.2-9.5 7.5M28 9c5 0 9 3.2 9.5 7.5"
-              stroke="currentColor"
-              stroke-width="1.25"
-              stroke-linecap="round"
-            />
-            <path d="M28 11v9" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
-            <path
-              d="M8 22h40l5 7H3l5-7z"
-              stroke="currentColor"
-              stroke-width="1.25"
-              stroke-linejoin="round"
+              d="M48.8 38.5c-.4-2.05-1.15-3.8-2.45-5M46.85 33.9c1.2.9 1.95 2.28 2.2 3.82M45.5 35.3l1.75 2.05M47.2 36.45l-2.3 1.1M44.85 37.65c-.88-.42-1.72-.52-2.48-.22"
+              opacity="0.92"
             />
             <path
-              d="M6 29h44v30a2.5 2.5 0 0 1-2.5 2.5h-39A2.5 2.5 0 0 1 6 59V29z"
-              stroke="currentColor"
-              stroke-width="1.25"
-              stroke-linejoin="round"
+              d="M14.2 34.8h27.6c.95.08 1.72.82 1.78 1.75v19.2c-.06 1.05-.92 1.88-1.95 1.92H14.35c-1.05-.04-1.92-.88-1.98-1.92V36.55c.08-.93.85-1.65 1.83-1.75z"
             />
-            <path d="M28 22v39.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
+            <path d="M17.2 40.2v4.2M17.9 46.1v2.35" opacity="0.55" />
+            <path d="M28 34.2v22.6" />
+            <path
+              d="M12.4 30.1h31.2c.88.1 1.58.78 1.65 1.65v2.35c-.08.92-.82 1.65-1.75 1.7H12.5c-.92-.05-1.68-.78-1.75-1.7v-2.35c.08-.88.78-1.55 1.65-1.65z"
+            />
+            <path
+              d="M28 30.1c-3.8-1.85-7.35-1.95-9.2.35-1.35 1.65-.85 4.05 1.15 5.85M28 30.1c3.6-1.9 7.25-2.05 9.15.25 1.4 1.7.95 4.1-1.05 5.95"
+            />
+            <path d="M28 30.1v3.2" />
+            <circle cx="28" cy="31.75" r="1.05" />
+            <path
+              d="M31.5 32.8c1.2 2.35 2.65 4.45 4.55 6.05 1.05.82 2.15 1.35 3.2 1.55M33.2 36.5c2.1 1.65 3.85 3.85 4.9 6.35"
+            />
           </svg>
         </div>
         <p class="regalos__lead fade-in">Lluvia de sobres</p>
@@ -1503,21 +1550,25 @@
     >
       <div class="fiesta__panel">
         <div class="fiesta__icon-wrap fade-in" aria-hidden="true">
-          <svg class="fiesta__icon" viewBox="0 0 56 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            class="fiesta__icon"
+            viewBox="0 0 56 64"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <ellipse cx="13.2" cy="46.2" rx="2.35" ry="2.15" transform="rotate(-8 13.2 46.2)" />
+            <ellipse cx="20.8" cy="45.4" rx="2.35" ry="2.15" transform="rotate(-5 20.8 45.4)" />
+            <path d="M15.5 46.1l.35-14.2M23.1 45.2l.45-14.35" />
+            <path d="M15.85 31.9c2.45-1.05 5.35-1.15 7.7-.25M15.65 33.8c2.5-.95 5.4-1 7.85-.05" />
+            <path d="M31.2 22.4h18.6M31.2 30.2h18.6M31.2 38.1h11.2" />
+            <path d="M27.4 21.1l1.35 1.35 2.5-3.2M27.4 28.95l1.35 1.35 2.5-3.15M27.4 36.85l1.35 1.35 2.45-3.1" />
             <path
-              d="M11 8h23.5l10.5 10.5V53a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3V11a3 3 0 0 1 3-3z"
-              stroke="currentColor"
-              stroke-width="1.25"
-              stroke-linejoin="round"
+              d="M44.8 37.2c-.32-.42-.78-.8-1.28-1.02-.34-.18-.52-.52-.48-.9.06-.48.48-.85.98-.82.32.02.6.2.78.44.2-.26.52-.44.88-.48.56-.06 1.02.35 1.08.88.04.36-.16.68-.46.86-.52.3-.98.72-1.28 1.22-.04.08-.1.12-.18.12s-.14-.04-.18-.12z"
             />
-            <path d="M34.5 8V18.5H45" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" />
-            <path
-              d="M34 42a3.25 3.25 0 1 1-6.5 0 3.25 3.25 0 0 1 6.5 0zM46 38a3.25 3.25 0 1 1-6.5 0 3.25 3.25 0 0 1 6.5 0z"
-              stroke="currentColor"
-              stroke-width="1.25"
-            />
-            <path d="M38 18v21M50 14v21" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
-            <path d="M38 18c3.5-1.2 8.5-3 12-4.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
           </svg>
         </div>
         <h2 id="fiesta-title" class="fiesta__kicker fade-in">¡Fiesta!</h2>
@@ -1568,6 +1619,13 @@
           <span class="color-swatch color-swatch--cross" style="background:#e8e0d5;" role="listitem" title="Beige — evitar"></span>
           <span class="color-swatch color-swatch--cross" style="background:var(--color-green);" role="listitem" title="Oliva — evitar"></span>
         </div>
+        <div class="dress-list__footnote">
+          <hr class="dress-list__rule" aria-hidden="true" />
+          <p class="dress-list__clima" role="note">
+            <span class="dress-list__clima-mark" aria-hidden="true">✦</span>
+            La recepción será al aire libre — te recomendamos llevar un abrigo; la noche pueden ser fría.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -1584,14 +1642,25 @@
       <div class="share-photos__icon-wrap" aria-hidden="true">
         <svg class="share-photos__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
-            d="M14 18h4l2.5-3h11L34 18h4a3 3 0 0 1 3 3v16a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3V21a3 3 0 0 1 3-3Z"
+            d="M13.5 18.5h4l2.4-3.2h11.2l2.4 3.2h4a3 3 0 0 1 3 3v15.8a3 3 0 0 1-3 3H13.5a3 3 0 0 1-3-3V21.5a3 3 0 0 1 3-3z"
             stroke="currentColor"
             stroke-width="1.35"
             stroke-linejoin="round"
           />
-          <circle cx="24" cy="28" r="5.5" stroke="currentColor" stroke-width="1.25" />
-          <circle cx="24" cy="28" r="2.25" fill="currentColor" fill-opacity="0.35" />
-          <path d="M36 20.5h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <circle cx="24" cy="28.5" r="6.2" stroke="currentColor" stroke-width="1.35" />
+          <circle cx="24" cy="28.5" r="3.2" stroke="currentColor" stroke-width="1.2" opacity="0.45" />
+          <path
+            d="M35.2 20c.45 0 .8.35.8.8s-.35.8-.8.8-.8-.35-.8-.8.35-.8.8-.8z"
+            stroke="currentColor"
+            stroke-width="1.35"
+          />
+          <path
+            d="M16 32.5c2.2-2.8 4.6-4.2 8-4.2s6.2 1.8 8 4.2"
+            stroke="currentColor"
+            stroke-width="1.35"
+            stroke-linecap="round"
+            opacity="0.4"
+          />
         </svg>
         <hr class="share-photos__rule" />
       </div>
@@ -1607,20 +1676,21 @@
 
     <div class="divider divider--calendar fade-in" aria-hidden="true">
       <svg viewBox="0 0 100 78" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M4 39 H14 M86 39 H96" stroke="currentColor" stroke-width="0.65" stroke-linecap="round" opacity="0.4" />
-        <rect x="22" y="14" width="56" height="52" rx="3" stroke="currentColor" stroke-width="1.05" fill="currentColor" fill-opacity="0.06" />
-        <line x1="22" y1="30" x2="78" y2="30" stroke="currentColor" stroke-width="0.85" stroke-opacity="0.45" />
-        <circle cx="36" cy="20" r="2.25" stroke="currentColor" stroke-width="0.75" fill="none" stroke-opacity="0.55" />
-        <circle cx="64" cy="20" r="2.25" stroke="currentColor" stroke-width="0.75" fill="none" stroke-opacity="0.55" />
-        <text x="50" y="24.5" text-anchor="middle" font-size="8.5" font-family="var(--font-title), Georgia, serif" font-style="italic" fill="currentColor" fill-opacity="0.85">AGO</text>
-        <rect class="rsvp-cal__highlight" x="33" y="38" width="34" height="24" rx="2" fill="currentColor" />
+        <path d="M4 39 H14 M86 39 H96" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" opacity="0.38" />
+        <rect x="22" y="14" width="56" height="52" rx="3.5" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" />
+        <line x1="22" y1="30" x2="78" y2="30" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" opacity="0.4" />
+        <path d="M35.5 18.5v-3.2M64.5 18.5v-3.2" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
+        <circle cx="36" cy="20" r="2.35" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" />
+        <circle cx="64" cy="20" r="2.35" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" />
+        <text x="50" y="24.5" text-anchor="middle" font-size="8.5" font-family="var(--font-title), Georgia, serif" font-style="italic" fill="currentColor" fill-opacity="0.88">AGO</text>
+        <rect class="rsvp-cal__highlight" x="33" y="38" width="34" height="24" rx="2.5" fill="currentColor" />
         <text x="50" y="56" text-anchor="middle" font-size="17" font-family="var(--font-body), Georgia, serif" font-weight="600" fill="currentColor" fill-opacity="0.92">15</text>
         <path
           class="rsvp-cal__tick"
           pathLength="1"
-          d="M54 50 L59 55.5 L71 43"
+          d="M50 44.5c-.4-.55-1-1.05-1.65-1.35-.45-.22-.7-.65-.62-1.12.12-.72.75-1.25 1.48-1.18.42.04.78.28 1.02.58.28-.36.72-.62 1.22-.68.78-.08 1.45.52 1.55 1.28.08.55-.22 1.05-.68 1.32-.68.4-1.28.95-1.68 1.62-.06.1-.15.16-.26.16s-.22-.06-.28-.16z"
           stroke="currentColor"
-          stroke-width="1.75"
+          stroke-width="1.35"
           stroke-linecap="round"
           stroke-linejoin="round"
           fill="none"
