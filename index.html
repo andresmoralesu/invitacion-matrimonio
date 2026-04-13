@@ -274,6 +274,37 @@
       margin: 0;
     }
 
+    /* Reproductor — compacto, tonos papel + verde (controles nativos varían por navegador) */
+    .invitation-audio {
+      width: 100%;
+      max-width: min(318px, 100%);
+      margin: 0 auto clamp(0.85rem, 2.4vw, 1.35rem);
+      padding: 0.28rem 0.45rem 0.28rem 0.5rem;
+      background: #e8eae4;
+      border: 1px solid rgba(107, 140, 110, 0.22);
+      border-radius: 999px;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        0 2px 10px rgba(45, 45, 45, 0.05);
+    }
+
+    @supports (background: color-mix(in srgb, white 50%, black 50%)) {
+      .invitation-audio {
+        background: color-mix(in srgb, var(--color-bg) 88%, var(--color-green) 12%);
+        border-color: color-mix(in srgb, var(--color-green) 22%, transparent);
+      }
+    }
+
+    .invitation-audio audio {
+      display: block;
+      width: 100%;
+      max-height: 34px;
+      min-height: 30px;
+      height: 34px;
+      accent-color: var(--color-green);
+      color-scheme: only light;
+    }
+
     /* Entrance animation */
     .hero-animate .hero__names,
     .hero-animate .hero__tag--banner {
@@ -990,6 +1021,15 @@
       outline: none;
     }
 
+    .fiesta__spotify-note {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--color-text);
+      opacity: 0.62;
+      margin: 0.6rem auto 0;
+      max-width: 22rem;
+    }
+
     .fiesta__notice {
       font-size: 0.9rem;
       line-height: 1.5;
@@ -1206,6 +1246,25 @@
       display: none;
     }
 
+    .share-photos__pre-event {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 2.4vw, 1.05rem);
+      font-style: italic;
+      color: var(--color-bg);
+      opacity: 0.9;
+      margin: 0 auto;
+      line-height: 1.6;
+      max-width: 22rem;
+      text-align: center;
+    }
+
+    .share-photos__pre-event span {
+      font-size: 0.88rem;
+      opacity: 0.72;
+      font-style: normal;
+      letter-spacing: 0.04em;
+    }
+
     /* RSVP / formulario */
     .rsvp {
       padding-bottom: clamp(3rem, 8vw, 5rem);
@@ -1237,6 +1296,14 @@
       color: var(--color-accent);
       margin: 0 0 1.5rem;
       line-height: 1.45;
+    }
+
+    .rsvp-form__deadline {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--color-accent);
+      margin: -0.75rem 0 1.25rem;
+      text-align: center;
     }
 
     .rsvp-form__fields {
@@ -1284,10 +1351,20 @@
 
     .rsvp-form__group {
       margin-bottom: 1rem;
+      transition: opacity 0.3s ease, max-height 0.4s ease;
+      max-height: 200px;
+      overflow: hidden;
     }
 
     .rsvp-form__group:last-of-type {
       margin-bottom: 1.35rem;
+    }
+
+    .rsvp-group--hidden {
+      opacity: 0;
+      max-height: 0;
+      pointer-events: none;
+      margin-bottom: 0;
     }
 
     .rsvp-form input[type="text"],
@@ -1493,6 +1570,15 @@
 
   <main class="wrap">
     <div class="hero-post fade-in" id="contenido-invitacion">
+      <div class="invitation-audio" role="region" aria-label="Música de la invitación">
+        <audio id="invitation-music" controls preload="auto" playsinline autoplay>
+          <source
+            src="Ed%20Sheeran%2C%20Perfect%20Symphony%20ft.%20Andrea%20Bocelli%20%28lyrics%20%26%20translate%29.mp3"
+            type="audio/mpeg"
+          />
+          Tu navegador no reproduce audio incrustado. Puedes escuchar la misma pista en otra app si la compartimos por otro medio.
+        </audio>
+      </div>
       <p class="hero__sub">Queremos que seas parte de nuestro gran día.</p>
       <p class="hero__date">15 de agosto de 2026</p>
     </div>
@@ -1500,19 +1586,19 @@
       <h2 id="countdown-title" class="section-title fade-in">Faltan para el gran día</h2>
       <div class="countdown__grid fade-in" id="countdown-grid">
         <div class="countdown__unit">
-          <span class="countdown__value" id="countdown-days">0</span>
+          <span class="countdown__value" id="countdown-days">—</span>
           <span class="countdown__label">Días</span>
         </div>
         <div class="countdown__unit">
-          <span class="countdown__value" id="countdown-hours">00</span>
+          <span class="countdown__value" id="countdown-hours">—</span>
           <span class="countdown__label">Horas</span>
         </div>
         <div class="countdown__unit">
-          <span class="countdown__value" id="countdown-mins">00</span>
+          <span class="countdown__value" id="countdown-mins">—</span>
           <span class="countdown__label">Minutos</span>
         </div>
         <div class="countdown__unit">
-          <span class="countdown__value" id="countdown-secs">00</span>
+          <span class="countdown__value" id="countdown-secs">—</span>
           <span class="countdown__label">Segundos</span>
         </div>
       </div>
@@ -1565,7 +1651,11 @@
       <div class="places-grid fade-in">
         <article class="place-card">
           <h3>Ceremonia</h3>
-          <p>Iglesia Santa María de los Ángeles 2:00 PM<br />Carrera 46 #15 Sur 93, Poblado Medellín</p>
+          <p>
+            <strong>2:00 PM</strong><br />
+            Iglesia Santa María de los Ángeles<br />
+            Carrera 46 #15 Sur 93, El Poblado, Medellín
+          </p>
           <a class="btn-map" href="https://www.google.com/maps/search/?api=1&amp;query=Iglesia+Santa+Mar%C3%ADa+de+los+%C3%81ngeles+CRA+46+%2315+SUR+93+Medell%C3%ADn" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
             Ver en mapa
@@ -1573,12 +1663,64 @@
         </article>
         <article class="place-card">
           <h3>Recepción</h3>
-          <p>Sagrado Bodas Boutique 4:00 PM<br />Vía a la Catedral KM 4, Envigado, Antioquia</p>
+          <p>
+            <strong>4:00 PM</strong><br />
+            Sagrado Bodas Boutique<br />
+            Vía a la Catedral KM 4, Envigado, Antioquia
+          </p>
           <a class="btn-map" href="https://www.google.com/maps/place/Sagrado+Medellin/@6.1306243,-75.6217895,13z/data=!4m10!1m2!2m1!1ssagrado!3m6!1s0x8e4683cba1ffcd95:0x6a24ff1701bee613!8m2!3d6.1306243!4d-75.5867706!15sCgdzYWdyYWRvWgkiB3NhZ3JhZG-SARZmdW5jdGlvbl9yb29tX2ZhY2lsaXR54AEA!16s%2Fg%2F11nn15hzxv?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
             Ver en mapa
           </a>
         </article>
+      </div>
+    </section>
+
+    <section id="dress-code" aria-labelledby="dress-title">
+      <div class="dress-divider fade-in" aria-hidden="true">
+        <div class="dress-divider__stage">
+          <svg class="dress-divider__svg" viewBox="0 0 220 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g class="dress-divider__dress">
+              <path d="M46 18h6M58 18h6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.55" />
+              <path
+                d="M44 20 Q55 16 66 20 L72 40 L78 68 Q55 72 32 68 L38 40 Z"
+                fill="color-mix(in srgb, currentColor 16%, transparent)"
+                stroke="currentColor"
+                stroke-width="0.85"
+                stroke-linejoin="round"
+              />
+            </g>
+            <g class="dress-divider__suit">
+              <path d="M136 20 L126 34 L122 68M184 20 L194 34 L198 68" stroke="currentColor" stroke-width="0.85" stroke-linecap="round" />
+              <path d="M136 20 Q160 14 184 20" stroke="currentColor" stroke-width="0.85" stroke-linecap="round" />
+              <path
+                d="M160 20 L154 38 L160 58 L166 38 Z"
+                fill="color-mix(in srgb, currentColor 32%, transparent)"
+                stroke="currentColor"
+                stroke-width="0.7"
+                stroke-linejoin="round"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <h2 id="dress-title" class="section-title fade-in">Dress code</h2>
+      <div class="dress-list fade-in">
+        <p><strong>Ellas:</strong> Vestido largo elegante, tacón grueso</p>
+        <p><strong>Ellos:</strong> Traje, saco y camisa formal</p>
+        <p class="dress-note">Evitar colores: Blanco, Beige y Oliva</p>
+        <div class="prohibited-colors" role="list" aria-label="Colores a evitar">
+          <span class="color-swatch color-swatch--cross" style="background:#ffffff;" role="listitem" title="Blanco — evitar"></span>
+          <span class="color-swatch color-swatch--cross" style="background:#e8e0d5;" role="listitem" title="Beige — evitar"></span>
+          <span class="color-swatch color-swatch--cross" style="background:#7a7a3a;" role="listitem" title="Oliva — evitar"></span>
+        </div>
+        <div class="dress-list__footnote">
+          <hr class="dress-list__rule" aria-hidden="true" />
+          <p class="dress-list__clima" role="note">
+            <span class="dress-list__clima-mark" aria-hidden="true">✦</span>
+            La recepción será al aire libre — te recomendamos llevar un abrigo; la noche puede ser fría.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -1665,57 +1807,12 @@
         <p class="fiesta__head fade-in">¿Qué canciones no pueden faltar en la fiesta?</p>
         <p class="fiesta__head fade-in">¡Queremos crear una lista inolvidable!</p>
         <div class="fiesta__actions fade-in">
-          <button type="button" class="fiesta__btn" id="fiesta-canciones-btn">Pide tu tema</button>
+          <button type="button" class="fiesta__btn" id="fiesta-canciones-btn">
+            Ir a la playlist colaborativa 🎵
+          </button>
         </div>
+        <p class="fiesta__spotify-note">Se necesita cuenta de Spotify para añadir canciones.</p>
         <p class="fiesta__notice" id="fiesta-canciones-notice" hidden role="status"></p>
-      </div>
-    </section>
-
-    <section id="dress-code" aria-labelledby="dress-title">
-      <div class="dress-divider fade-in" aria-hidden="true">
-        <div class="dress-divider__stage">
-          <svg class="dress-divider__svg" viewBox="0 0 220 76" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g class="dress-divider__dress">
-              <path d="M46 18h6M58 18h6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.55" />
-              <path
-                d="M44 20 Q55 16 66 20 L72 40 L78 68 Q55 72 32 68 L38 40 Z"
-                fill="color-mix(in srgb, currentColor 16%, transparent)"
-                stroke="currentColor"
-                stroke-width="0.85"
-                stroke-linejoin="round"
-              />
-            </g>
-            <g class="dress-divider__suit">
-              <path d="M136 20 L126 34 L122 68M184 20 L194 34 L198 68" stroke="currentColor" stroke-width="0.85" stroke-linecap="round" />
-              <path d="M136 20 Q160 14 184 20" stroke="currentColor" stroke-width="0.85" stroke-linecap="round" />
-              <path
-                d="M160 20 L154 38 L160 58 L166 38 Z"
-                fill="color-mix(in srgb, currentColor 32%, transparent)"
-                stroke="currentColor"
-                stroke-width="0.7"
-                stroke-linejoin="round"
-              />
-            </g>
-          </svg>
-        </div>
-      </div>
-      <h2 id="dress-title" class="section-title fade-in">Dress code</h2>
-      <div class="dress-list fade-in">
-        <p><strong>Ellas:</strong> Vestido largo elegante, tacón grueso</p>
-        <p><strong>Ellos:</strong> Traje, saco y camisa formal</p>
-        <p class="dress-note">Evitar colores: Blanco, Beige y Oliva</p>
-        <div class="prohibited-colors" role="list" aria-label="Colores a evitar">
-          <span class="color-swatch color-swatch--cross" style="background:#ffffff;" role="listitem" title="Blanco — evitar"></span>
-          <span class="color-swatch color-swatch--cross" style="background:#e8e0d5;" role="listitem" title="Beige — evitar"></span>
-          <span class="color-swatch color-swatch--cross" style="background:var(--color-green);" role="listitem" title="Oliva — evitar"></span>
-        </div>
-        <div class="dress-list__footnote">
-          <hr class="dress-list__rule" aria-hidden="true" />
-          <p class="dress-list__clima" role="note">
-            <span class="dress-list__clima-mark" aria-hidden="true">✦</span>
-            La recepción será al aire libre — te recomendamos llevar un abrigo; la noche pueden ser fría.
-          </p>
-        </div>
       </div>
     </section>
 
@@ -1760,6 +1857,10 @@
       </p>
       <div class="share-photos__actions">
         <button type="button" class="share-photos__btn" id="share-photos-album">Abrir álbum de fotos</button>
+        <p class="share-photos__pre-event" hidden>
+          El álbum estará disponible el día del evento.<br />
+          <span>¡Guarda esta invitación para volver aquí!</span>
+        </p>
       </div>
       <p class="share-photos__notice" id="share-photos-notice" hidden role="status"></p>
     </section>
@@ -1801,6 +1902,7 @@
         >
           <p class="rsvp-form__lead">Invitación para una sola persona.</p>
           <p class="rsvp-form__subtitle">Por favor, confirma tu asistencia. ¡Esperamos que estés allí!</p>
+          <p class="rsvp-form__deadline">Confirma antes del <strong>15 de julio de 2026</strong></p>
 
           <div class="rsvp-form__fields">
             <fieldset class="rsvp-form__radios">
@@ -1873,6 +1975,43 @@
   </footer>
 
   <script>
+    (function () {
+      var audio = document.getElementById("invitation-music");
+      if (!audio) return;
+
+      var gestureUnlockInstalled = false;
+
+      function tryPlay() {
+        return audio.play();
+      }
+
+      function onAutoplayBlocked() {
+        if (gestureUnlockInstalled) return;
+        gestureUnlockInstalled = true;
+        function startOnGesture() {
+          tryPlay().catch(function () {});
+        }
+        document.addEventListener("pointerdown", startOnGesture, { capture: true, once: true });
+        document.addEventListener("keydown", startOnGesture, { capture: true, once: true });
+      }
+
+      function attempt() {
+        var p = tryPlay();
+        if (p && typeof p.catch === "function") {
+          p.catch(function (err) {
+            if (err && err.name === "NotAllowedError") onAutoplayBlocked();
+          });
+        }
+      }
+
+      if (audio.readyState >= 2) {
+        attempt();
+      } else {
+        audio.addEventListener("canplay", attempt, { once: true });
+      }
+      window.addEventListener("load", attempt);
+    })();
+
     (function () {
       var els = document.querySelectorAll(".fade-in");
       if (!("IntersectionObserver" in window)) {
@@ -2034,17 +2173,36 @@
     (function () {
       var form = document.getElementById("rsvp-form");
       if (!form) return;
-      var url = (form.getAttribute("data-google-script-url") || "").trim();
-      if (url && url.indexOf("script.google.com") !== -1) {
-        form.setAttribute("action", url);
-      }
       var errEl = document.getElementById("rsvp-error");
       var okEl = document.getElementById("rsvp-success");
+      var alergiasInput = form.querySelector("#rsvp-alergias");
+      var mensajeInput = form.querySelector("#rsvp-mensaje");
+      var groupAlergias = alergiasInput && alergiasInput.closest(".rsvp-form__group");
+      var groupMensaje = mensajeInput && mensajeInput.closest(".rsvp-form__group");
+
+      function syncAsistenciaFields() {
+        var asistChecked = form.querySelector('input[name="asistencia"]:checked');
+        if (!asistChecked) {
+          if (groupAlergias) groupAlergias.classList.remove("rsvp-group--hidden");
+          if (groupMensaje) groupMensaje.classList.remove("rsvp-group--hidden");
+          return;
+        }
+        if (asistChecked.value === "no") {
+          if (groupAlergias) groupAlergias.classList.add("rsvp-group--hidden");
+          if (groupMensaje) groupMensaje.classList.add("rsvp-group--hidden");
+          if (alergiasInput) alergiasInput.value = "";
+          if (mensajeInput) mensajeInput.value = "";
+        } else if (asistChecked.value === "si") {
+          if (groupAlergias) groupAlergias.classList.remove("rsvp-group--hidden");
+          if (groupMensaje) groupMensaje.classList.remove("rsvp-group--hidden");
+        }
+      }
+
+      form.querySelectorAll('input[name="asistencia"]').forEach(function (radio) {
+        radio.addEventListener("change", syncAsistenciaFields);
+      });
 
       form.addEventListener("submit", function (e) {
-        var action = (form.getAttribute("action") || "").trim();
-        if (action && action !== "#") return;
-
         e.preventDefault();
         if (errEl) errEl.textContent = "";
         if (okEl) okEl.hidden = true;
@@ -2063,7 +2221,30 @@
           return;
         }
 
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var action = (form.getAttribute("data-google-script-url") || "").trim();
+        if (action && action.indexOf("script.google.com") !== -1) {
+          if (submitBtn) submitBtn.disabled = true;
+          fetch(action, { method: "POST", body: new FormData(form), mode: "no-cors" })
+            .then(function () {
+              form.reset();
+              syncAsistenciaFields();
+              if (okEl) {
+                okEl.hidden = false;
+                okEl.classList.add("is-visible");
+              }
+            })
+            .catch(function () {
+              if (errEl) errEl.textContent = "Hubo un error al enviar. Por favor intenta de nuevo.";
+            })
+            .finally(function () {
+              if (submitBtn) submitBtn.disabled = false;
+            });
+          return;
+        }
+
         form.reset();
+        syncAsistenciaFields();
         if (okEl) {
           okEl.hidden = false;
           okEl.classList.add("is-visible");
@@ -2080,7 +2261,7 @@
       btn.addEventListener("click", function () {
         if (!url) {
           if (notice) {
-            notice.textContent = "Pronto compartiremos el enlace para pedir tu canción.";
+            notice.textContent = "Pronto compartiremos el enlace a la playlist.";
             notice.hidden = false;
           }
           return;
@@ -2094,6 +2275,17 @@
       var btn = document.getElementById("share-photos-album");
       var notice = document.getElementById("share-photos-notice");
       if (!section || !btn) return;
+      var eventStart = new Date("2026-08-15T00:00:00-05:00");
+      var now = new Date();
+      var actions = section.querySelector(".share-photos__actions");
+      var preEvent = actions && actions.querySelector(".share-photos__pre-event");
+      if (now < eventStart) {
+        btn.hidden = true;
+        if (preEvent) preEvent.hidden = false;
+      } else {
+        btn.hidden = false;
+        if (preEvent) preEvent.hidden = true;
+      }
       var url = (section.getAttribute("data-album-url") || "").trim();
       btn.addEventListener("click", function () {
         if (!url) {
