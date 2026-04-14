@@ -259,11 +259,15 @@
     }
 
     .hero__sub {
-      font-size: clamp(1.05rem, 2.8vw, 1.2rem);
-      max-width: 22em;
+      font-family: var(--font-title);
+      font-style: italic;
+      font-size: clamp(1.35rem, 4vw, 1.75rem);
+      max-width: 26em;
       margin: 0 auto 0.65rem;
       font-weight: 400;
       color: var(--color-text);
+      letter-spacing: 0.03em;
+      line-height: 1.45;
     }
 
     .hero__date {
@@ -684,7 +688,7 @@
       margin-top: 0.4rem;
       font-family: var(--font-title);
       font-style: italic;
-      font-size: 0.78rem;
+      font-size: 0.92rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--color-green);
@@ -870,7 +874,7 @@
       gap: 0.45em;
       padding: 0.65em 1.35em;
       font-family: var(--font-body);
-      font-size: 0.95rem;
+      font-size: 1rem;
       letter-spacing: 0.06em;
       text-decoration: none;
       color: var(--color-green);
@@ -1000,7 +1004,7 @@
       padding: 0.65rem 1.5rem;
       font-family: var(--font-title);
       font-style: italic;
-      font-size: clamp(0.78rem, 2vw, 0.88rem);
+      font-size: clamp(0.84rem, 2.1vw, 0.94rem);
       letter-spacing: 0.14em;
       text-transform: uppercase;
       text-align: center;
@@ -1022,7 +1026,7 @@
     }
 
     .fiesta__spotify-note {
-      font-size: 0.82rem;
+      font-size: 0.92rem;
       font-style: italic;
       color: var(--color-text);
       opacity: 0.62;
@@ -1211,7 +1215,7 @@
       padding: 0.82rem 1.35rem;
       font-family: var(--font-title);
       font-style: italic;
-      font-size: clamp(0.78rem, 2vw, 0.88rem);
+      font-size: clamp(0.92rem, 2.4vw, 1rem);
       letter-spacing: 0.18em;
       text-transform: uppercase;
       text-align: center;
@@ -1284,7 +1288,7 @@
     .rsvp-form__lead {
       font-size: clamp(0.95rem, 2.4vw, 1.05rem);
       color: var(--color-text);
-      opacity: 0.88;
+      opacity: 1;
       margin: 0 0 0.35rem;
       line-height: 1.55;
     }
@@ -1299,7 +1303,7 @@
     }
 
     .rsvp-form__deadline {
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       font-style: italic;
       color: var(--color-accent);
       margin: -0.75rem 0 1.25rem;
@@ -1579,7 +1583,7 @@
           Tu navegador no reproduce audio incrustado. Puedes escuchar la misma pista en otra app si la compartimos por otro medio.
         </audio>
       </div>
-      <p class="hero__sub">Queremos que seas parte de nuestro gran día.</p>
+      <p class="hero__sub">Queremos que seas parte de nuestro gran día</p>
       <p class="hero__date">15 de agosto de 2026</p>
     </div>
     <section id="cuenta-regresiva" aria-labelledby="countdown-title">
@@ -1900,7 +1904,9 @@
           method="post"
           data-google-script-url="https://script.google.com/macros/s/AKfycbynyBtWR3Cw9SNr0GSZMWPHTdT2T0fWiyiE7yjHuGP6JTcu-Bg5hZB8-L3ewQQ_7G0Q/exec"
         >
-          <p class="rsvp-form__lead">Invitación para una sola persona.</p>
+          <p class="rsvp-form__lead">
+            <strong>Invitación para una sola persona.</strong>
+          </p>
           <p class="rsvp-form__subtitle">Por favor, confirma tu asistencia. ¡Esperamos que estés allí!</p>
           <p class="rsvp-form__deadline">Confirma antes del <strong>15 de julio de 2026</strong></p>
 
