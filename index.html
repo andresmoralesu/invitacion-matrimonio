@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marisol y Andrés — Nos casamos</title>
-  <meta name="description" content="Marisol y Andrés se casan el 15 de agosto de 2026. Ceremonia en Medellín y recepción en Enviado. Confirma tu asistencia." />
+  <meta name="description" content="Marisol y Andrés se casan el 15 de agosto de 2026. Ceremonia en Medellín y recepción en Envigado. Confirma tu asistencia." />
   <meta property="og:title" content="Marisol y Andrés — Nos casamos" />
   <meta property="og:description" content="Queremos que seas parte de nuestro gran día. 15 de agosto de 2026." />
   <meta property="og:type" content="website" />
@@ -1573,7 +1573,7 @@
       <div class="invitation-audio" role="region" aria-label="Música de la invitación">
         <audio id="invitation-music" controls preload="auto" playsinline autoplay>
           <source
-            src="Ed%20Sheeran%2C%20Perfect%20Symphony%20ft.%20Andrea%20Bocelli%20%28lyrics%20%26%20translate%29.mp3"
+            src="musica-invitacion.mp3"
             type="audio/mpeg"
           />
           Tu navegador no reproduce audio incrustado. Puedes escuchar la misma pista en otra app si la compartimos por otro medio.
@@ -2285,6 +2285,14 @@
       } else {
         btn.hidden = false;
         if (preEvent) preEvent.hidden = true;
+      }
+      var lead = section.querySelector(".share-photos__lead");
+      if (lead) {
+        if (now < eventStart) {
+          lead.textContent = "El día de la boda podrás ver y compartir fotos con todos los invitados desde este mismo lugar.";
+        } else {
+          lead.textContent = "Entra al álbum colaborativo: podrás ver las fotos del día y añadir las tuyas.";
+        }
       }
       var url = (section.getAttribute("data-album-url") || "").trim();
       btn.addEventListener("click", function () {
